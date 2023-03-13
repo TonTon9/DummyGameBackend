@@ -1,5 +1,6 @@
 using System;
 using Cysharp.Threading.Tasks;
+using JsonModels;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -56,7 +57,7 @@ public class LoginWindow : BaseMonoBehaviour
         await UniTask.WaitUntil(() => LoginManager.Instance != null &&
                                       LoginManager.Instance.IsInitialize);
 
-        var loginModel = new LoginUserModel()
+        var loginModel = new LoginUserJsonModel()
         {
             login = _loginInput.text,
             password = _passwordInput.text
@@ -78,10 +79,10 @@ public class LoginWindow : BaseMonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
-    private void LoginManager_OnLoginFail(ResponseContentModel responseContentModel)
+    private void LoginManager_OnLoginFail(ResponseContentJsonModel responseContentModel)
     {
         _loadingWindow.gameObject.SetActive(false);
-        var responseContent = JsonUtility.FromJson<ResponseContentModel>(responseContentModel.content);
+        var responseContent = JsonUtility.FromJson<ResponseContentJsonModel>(responseContentModel.content);
         Debug.Log(responseContent);
     }
 

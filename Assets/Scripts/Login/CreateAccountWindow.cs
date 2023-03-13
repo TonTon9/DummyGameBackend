@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using JsonModels;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -58,7 +59,7 @@ public class CreateAccountWindow : BaseMonoBehaviour
             return;
         }
         
-        var loginModel = new LoginUserModel()
+        var loginModel = new LoginUserJsonModel()
         {
             login = _loginInput.text,
             password = _passwordInput.text
@@ -77,10 +78,10 @@ public class CreateAccountWindow : BaseMonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void LoginManager_OnRegistrationFail(ResponseContentModel responseContentModel)
+    private void LoginManager_OnRegistrationFail(ResponseContentJsonModel responseContentModel)
     {
         _loadingWindow.gameObject.SetActive(false);
-        var responseContent = JsonUtility.FromJson<ResponseContentModel>(responseContentModel.content);
+        var responseContent = JsonUtility.FromJson<ResponseContentJsonModel>(responseContentModel.content);
         Debug.Log(responseContent);
     }
 }

@@ -1,11 +1,12 @@
-using Components.BaseComponent;
+﻿using Components.BaseComponent;
 using Cysharp.Threading.Tasks;
 using Models;
 using UniRx;
+using UnityEngine;
 
 namespace Components.CharacterComponents
 {
-    public class CharacterNameTextComponent : BaseTextComponent<CharacterModel>, IInitializedComponent
+    public class CharacterImageComponent : BaseImageComponent<CharacterModel>, IInitializedComponent
     {
         public bool IsInitialized { get; private set; } = false;
         protected override async void Initialize()
@@ -20,9 +21,9 @@ namespace Components.CharacterComponents
 
         private void CharacterViewModelNameChanged(string newName)
         {
-            Redraw(newName);
+            var sprite = Resources.Load<Sprite>($"CharacterImages/{newName}");
+            Redraw(sprite);
             IsInitialized = true;
         }
     }
-
 }

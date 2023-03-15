@@ -1029,6 +1029,10 @@ PrefabInstance:
       value: CharacterNameTextComponent
       objectReference: {fileID: 0}
     - target: {fileID: 6569297300594812751, guid: 13758cbf4dd5ce04d822ab94054f232a, type: 3}
+      propertyPath: _view
+      value: 
+      objectReference: {fileID: 453170006791144313}
+    - target: {fileID: 6569297300594812751, guid: 13758cbf4dd5ce04d822ab94054f232a, type: 3}
       propertyPath: _characterView
       value: 
       objectReference: {fileID: 453170006791144313}
@@ -1203,6 +1207,10 @@ PrefabInstance:
       value: CharacterStat
       objectReference: {fileID: 0}
     - target: {fileID: 7112553114340520452, guid: 91193810e590a0b499946ef0642ee685, type: 3}
+      propertyPath: _view
+      value: 
+      objectReference: {fileID: 453170006791144313}
+    - target: {fileID: 7112553114340520452, guid: 91193810e590a0b499946ef0642ee685, type: 3}
       propertyPath: _characterView
       value: 
       objectReference: {fileID: 453170006791144313}
@@ -1376,6 +1384,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterStat
       objectReference: {fileID: 0}
+    - target: {fileID: 7112553114340520452, guid: 91193810e590a0b499946ef0642ee685, type: 3}
+      propertyPath: _view
+      value: 
+      objectReference: {fileID: 453170006791144313}
     - target: {fileID: 7112553114340520452, guid: 91193810e590a0b499946ef0642ee685, type: 3}
       propertyPath: _statType
       value: 2
@@ -1555,6 +1567,10 @@ PrefabInstance:
       value: CharacterStat
       objectReference: {fileID: 0}
     - target: {fileID: 7112553114340520452, guid: 91193810e590a0b499946ef0642ee685, type: 3}
+      propertyPath: _view
+      value: 
+      objectReference: {fileID: 453170006791144313}
+    - target: {fileID: 7112553114340520452, guid: 91193810e590a0b499946ef0642ee685, type: 3}
       propertyPath: _statType
       value: 1
       objectReference: {fileID: 0}
@@ -1580,6 +1596,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterImageComponent
       objectReference: {fileID: 0}
+    - target: {fileID: 7618906915216293572, guid: 5c2e5099df9ecb842b8965b627adaffd, type: 3}
+      propertyPath: _view
+      value: 
+      objectReference: {fileID: 453170006791144313}
     - target: {fileID: 8873086336664772096, guid: 5c2e5099df9ecb842b8965b627adaffd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

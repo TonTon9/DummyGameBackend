@@ -7,26 +7,28 @@ using UnityEngine;
 
 namespace Components.CharacterComponents
 {
-    public class CharacterStatTextComponent : BaseCharacterTextComponentView
+    public class CharacterStatTextComponent : BaseTextComponent<CharacterModel>, IInitializedComponent
     {
         [SerializeField]
-        private CharacterStatType _statType; 
+        private CharacterStatType _statType;
+
+        public bool IsInitialized { get; private set; } = false;
         protected override async void Initialize()
         {
             base.Initialize();
-            await UniTask.WaitUntil(() => _characterView.IsInitialize &&
-                                          _characterView.Model.Value != null);
+            await UniTask.WaitUntil(() => _view.IsInitialize &&
+                                          _view.Model.Value != null);
 
             switch (_statType)
             {
                 case CharacterStatType.Health:
-                    SetAndSubscribeCharacterStat(_characterView.Model.Value.Health);
+                    SetAndSubscribeCharacterStat(_view.Model.Value.Health);
                     break;
                 case CharacterStatType.Damage:
-                    SetAndSubscribeCharacterStat(_characterView.Model.Value.Stamina);
+                    SetAndSubscribeCharacterStat(_view.Model.Value.Stamina);
                     break;
                 case CharacterStatType.Stamina:
-                    SetAndSubscribeCharacterStat(_characterView.Model.Value.MoveSpeed);
+                    SetAndSubscribeCharacterStat(_view.Model.Value.MoveSpeed);
                     break;
             }
         }
@@ -34,6 +36,7 @@ namespace Components.CharacterComponents
         private void CharacterViewModelNameChanged(float newName)
         {
             Redraw(newName.ToString());
+            IsInitialized = true;
         }
 
         private void SetAndSubscribeCharacterStat(CharacterProperty<float> property)

@@ -1,24 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UniRx;
-using UnityEngine;
 
 namespace Models
 {
     public class CharacterModel : IModel
     {
-        public ReactiveProperty<float> Health { get; }
-        public ReactiveProperty<float> Stamina { get; }
-        public ReactiveProperty<float> MoveSpeed { get; }
+        public CharacterProperty<string> CharacterName { get; }
+        public CharacterProperty<float> Health { get; }
+        public CharacterProperty<float> Stamina { get; }
+        public CharacterProperty<float> MoveSpeed { get; }
         
-        public ReactiveProperty<bool> IsAlive { get; }
+        public CharacterProperty<bool> IsAlive { get; }
 
-        public CharacterModel(float health, float stamina, float moveSpeed)
+        public CharacterModel(string name, float health, float stamina, float moveSpeed)
         {
-            Health = new ReactiveProperty<float>(health);
-            Stamina = new ReactiveProperty<float>(stamina);
-            MoveSpeed = new ReactiveProperty<float>(moveSpeed);
-            IsAlive = new ReactiveProperty<bool>(true);
+            CharacterName = new CharacterProperty<string>(name);
+            
+            Health = new CharacterProperty<float>(health);
+            Stamina = new CharacterProperty<float>(stamina);
+            MoveSpeed = new CharacterProperty<float>(moveSpeed);
+            IsAlive = new CharacterProperty<bool>(true);
+        }
+    }
+
+    public class CharacterProperty<T>
+    {
+        public ReactiveProperty<T> CurrentValue { get; }
+        public ReactiveProperty<T> MaxValue { get; }
+
+        public CharacterProperty(T initValue)
+        {
+            CurrentValue = new ReactiveProperty<T>(initValue);
+            MaxValue = new ReactiveProperty<T>(initValue);
         }
     }
 }

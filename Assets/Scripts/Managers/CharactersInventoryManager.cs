@@ -60,7 +60,7 @@ namespace Managers
 
         private void AddCharacterByJsonModel(CharacterJsonModel playerCharacter)
         {
-            CharacterModel characterModel = new CharacterModel(playerCharacter.MaxHealth, 1, 1);
+            CharacterModel characterModel = new CharacterModel(playerCharacter.Name,playerCharacter.MaxHealth, 1, 1);
             PlayerCharacters.Add(characterModel);
         }
     }

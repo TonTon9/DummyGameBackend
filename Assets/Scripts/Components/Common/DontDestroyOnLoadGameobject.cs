@@ -1,13 +1,10 @@
-namespace Managers
+namespace Components.Common
 {
-    public abstract class BaseManager<T> : BaseMonoBehaviour where T : BaseManager<T>
+    public class DontDestroyOnLoadGameobject : BaseMonoBehaviour
     {
-        public static T Instance;
-        public bool IsInitialize { get; set; }
-
         protected override void Initialize()
         {
-            Instance = GetComponent<T>();
+            DontDestroyOnLoad(gameObject);
         }
 
         protected override void UnInitialize()

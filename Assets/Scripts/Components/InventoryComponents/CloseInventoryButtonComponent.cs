@@ -1,13 +1,13 @@
 using Components.BaseComponent;
+using UI.Container;
 using UnityEngine;
-using Views;
 
 namespace Components.InventoryComponent
 {
     public class CloseInventoryButtonComponent : BaseButtonComponent
     {
         [SerializeField]
-        private CharacterInventoryView _inventory;
+        private CharacterInventoryContainer _inventory;
         protected override void Button_OnClick()
         {
             if (_inventory != null)

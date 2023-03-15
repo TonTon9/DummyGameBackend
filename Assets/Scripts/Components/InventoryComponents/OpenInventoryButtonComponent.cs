@@ -1,37 +1,37 @@
 using Components.BaseComponent;
+using UI.Container;
 using UnityEngine;
-using Views;
 
 namespace Components.InventoryComponent
 {
     public class OpenInventoryButtonComponent : BaseButtonComponent
     {
         [SerializeField]
-        private CharacterInventoryView _inventoryView;
+        private CharacterInventoryContainer inventoryContainer;
 
         protected override void Subscribe()
         {
             base.Subscribe();
-            if (_inventoryView == null) return;
-            _inventoryView.OnHide += InventoryViewOnHide;
+            if (inventoryContainer == null) return;
+            inventoryContainer.OnHide += InventoryContainerOnHide;
         }
         
         protected override void UnSubscribe()
         {
             base.Subscribe();
-            if (_inventoryView == null) return;
-            _inventoryView.OnHide -= InventoryViewOnHide;
+            if (inventoryContainer == null) return;
+            inventoryContainer.OnHide -= InventoryContainerOnHide;
         }
 
-        private void InventoryViewOnHide()
+        private void InventoryContainerOnHide()
         {
             gameObject.SetActive(true);
         }
 
         protected override void Button_OnClick()
         {
-            if (_inventoryView == null) return;
-            _inventoryView.Show();
+            if (inventoryContainer == null) return;
+            inventoryContainer.Show();
             gameObject.SetActive(false);
         }
     }

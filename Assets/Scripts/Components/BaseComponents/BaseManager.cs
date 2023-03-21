@@ -1,3 +1,5 @@
+using Components;
+
 namespace Managers
 {
     public abstract class BaseManager<T> : BaseMonoBehaviour where T : BaseManager<T>

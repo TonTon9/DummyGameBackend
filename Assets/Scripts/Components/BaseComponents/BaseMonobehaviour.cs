@@ -1,26 +1,40 @@
 using UnityEngine;
 
-public abstract class BaseMonoBehaviour : MonoBehaviour
+namespace Components
 {
-    protected abstract void Initialize();
-    protected abstract void UnInitialize();
-    
-    protected abstract void Subscribe();
-    protected abstract void UnSubscribe();
-    
-    private void Awake()
+    public abstract class BaseMonoBehaviour : MonoBehaviour
     {
-        Initialize();
+        protected virtual void Initialize()
+        {
+        }
+
+        protected virtual void UnInitialize()
+        {
+        }
+
+        protected virtual void Subscribe()
+        {
+        }
+
+        protected virtual void UnSubscribe()
+        {
+        }
+    
+        private void Awake()
+        {
+            Initialize();
+        }
+
+        private void Start()
+        {
+            Subscribe();
+        }
+
+        private void OnDestroy()
+        {
+            UnInitialize();
+            UnSubscribe();
+        }
     }
 
-    private void Start()
-    {
-        Subscribe();
-    }
-
-    private void OnDestroy()
-    {
-        UnInitialize();
-        UnSubscribe();
-    }
 }

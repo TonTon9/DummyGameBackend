@@ -1017,7 +1017,7 @@ PrefabInstance:
       objectReference: {fileID: 1741646701}
     - target: {fileID: 5399019389271618339, guid: 79b19b0399df08c47ba902fae32723e8, type: 3}
       propertyPath: _useSteam
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5399019389271618339, guid: 79b19b0399df08c47ba902fae32723e8, type: 3}
       propertyPath: _adressField

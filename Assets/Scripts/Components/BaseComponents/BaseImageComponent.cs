@@ -5,7 +5,7 @@ using UnityEngine.UI;
 namespace Components.BaseComponent
 {
     [RequireComponent(typeof(Image))]
-    public class BaseImageComponent<T> : BaseCharacterTextComponentView<T> where T : IModel
+    public class BaseImageComponent<T> : BaseCharacterComponentBaseOnView<T> where T : IModel
     {
         private Image _image;
         protected override void Initialize()

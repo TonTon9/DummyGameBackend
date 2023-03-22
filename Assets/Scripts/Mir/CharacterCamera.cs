@@ -36,12 +36,15 @@ namespace Components.CharacterComponents.Camera
         
             transform.Rotate(0, yAngle * Ysens, 0);
 
-            SetCameraYValue();
+            SetCameraPosition();
         }
 
-        private void SetCameraYValue()
+        private void SetCameraPosition()
         {
-            _characterCamera.position = new Vector3(_characterCamera.position.x, _cameraPositionObject.transform.position.y, _characterCamera.position.z);
+            _characterCamera.position = _cameraPositionObject.transform.position;
+            _characterCamera.localPosition = new Vector3(_characterCamera.localPosition.x, _characterCamera.localPosition.y, _characterCamera.localPosition.z+0.2f);
+
+            //_characterCamera.position = new Vector3(_characterCamera.position.x, _cameraPositionObject.transform.position.y, _characterCamera.position.z);
         }
     }
 }

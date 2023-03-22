@@ -4,12 +4,22 @@ namespace Components
 {
     public abstract class BaseNetworkMonoBehaviour : NetworkBehaviour
     {
-        protected abstract void Initialize();
-        protected abstract void UnInitialize();
-    
-        protected abstract void Subscribe();
-        protected abstract void UnSubscribe();
-    
+        protected virtual void Initialize()
+        {
+        }
+
+        protected virtual void UnInitialize()
+        {
+        }
+
+        protected virtual void Subscribe()
+        {
+        }
+
+        protected virtual void UnSubscribe()
+        {
+        }
+
         private void Awake()
         {
             Initialize();

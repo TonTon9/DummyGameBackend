@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Components.BaseComponent
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
-    public abstract class BaseTextComponent<T> : BaseCharacterTextComponentView<T> where T : IModel
+    public abstract class BaseTextComponent<T> : BaseCharacterComponentBaseOnView<T> where T : IModel
     {
         private TextMeshProUGUI _text;
         

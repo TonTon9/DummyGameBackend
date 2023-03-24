@@ -1,3 +1,4 @@
+using Enums;
 using Mirror;
 using UnityEngine;
 
@@ -7,6 +8,9 @@ namespace Components.Network
     {
         [SyncVar]
         public string playerName;
+
+        [SyncVar]
+        public string characterName;
         
         public override void OnStartClient()
         {

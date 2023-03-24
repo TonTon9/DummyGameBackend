@@ -190,7 +190,6 @@ MonoBehaviour:
   _loginInput: {fileID: 4785394495338341639}
   _passwordInput: {fileID: 7406673568290093736}
   _repeatPasswordInput: {fileID: 8068276152913911706}
-  _successWindow: {fileID: 0}
   _loadingWindow: {fileID: 5133645244280323382}
 --- !u!1 &2612469943664586183
 GameObject:

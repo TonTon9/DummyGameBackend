@@ -26,6 +26,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6538836281348733928}
   m_Father: {fileID: 6538836281095641728}
@@ -63,6 +64,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6538836280938126802}
   m_Father: {fileID: 6538836281597577187}
@@ -166,12 +168,12 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 6538836281095641731}
     Selectable: {fileID: 6538836281095641729}
+  Cooldown: 0
+  DisableWhenInCooldown: 0
   Id:
     Category: Action
     Name: Plus
     Custom: 1
-  Cooldown: 0
-  DisableWhenInCooldown: 0
 --- !u!1 &6538836281348733931
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +206,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6538836280938126802}
   m_RootOrder: 0
@@ -2096,6 +2099,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6538836282893936809}
   - {fileID: 6538836281095641728}
@@ -2191,6 +2195,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6538836282297811206}
   m_RootOrder: 0
@@ -4081,6 +4086,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6538836281597577187}
   m_Father: {fileID: 0}
@@ -4220,6 +4226,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6538836281782941881}
   m_Father: {fileID: 6538836282893936809}
@@ -4259,6 +4266,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6538836282435843314}
   m_Father: {fileID: 6538836281597577187}
@@ -4430,6 +4438,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6538836282366163057}
   m_RootOrder: 0
@@ -4657,6 +4666,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6538836282297811206}
   m_Father: {fileID: 6538836281597577187}
@@ -4760,9 +4770,9 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 6538836282893936808}
     Selectable: {fileID: 6538836282893936806}
+  Cooldown: 0
+  DisableWhenInCooldown: 0
   Id:
     Category: Action
     Name: Minus
     Custom: 1
-  Cooldown: 0
-  DisableWhenInCooldown: 0

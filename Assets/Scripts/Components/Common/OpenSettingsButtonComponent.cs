@@ -9,7 +9,7 @@ namespace Components.Menu
     public class OpenSettingsButtonComponent : BaseButtonComponent
     {
         [SerializeField]
-        private UIContainerUIAnimator _settingsAnimator;
+        private MainMenuSettingsView _settings;
     
         [SerializeField]
         private UIContainerUIAnimator _ownAnimator;
@@ -23,7 +23,7 @@ namespace Components.Menu
         
             await UniTask.Delay(TimeSpan.FromSeconds(_delayInSeconds));
 
-            _settingsAnimator.Show();
+            _settings.ShowSettings();
         
         }
     }

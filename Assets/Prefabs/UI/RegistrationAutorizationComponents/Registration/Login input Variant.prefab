@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 479137176668848677, guid: fe0b7e33dbdc83e42a9f93d420cf77c3, type: 3}
       propertyPath: m_Name
-      value: Login input
+      value: Login input Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2365083043039816439, guid: fe0b7e33dbdc83e42a9f93d420cf77c3, type: 3}
       propertyPath: m_Pivot.x

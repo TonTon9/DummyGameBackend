@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 namespace Components.Network
 {
     public class GameNetworkManager : NetworkManager
     {
-        public event Action<List<NetworkPlayer>, NetworkManager> OnLobbySceneLoaded = delegate {  };
+        public event Action PlayerRemoved = delegate { };
+        public event Action<NetworkPlayer, NetworkManager> OnLobbySceneLoaded = delegate {  };
+        public event Action<NetworkPlayer, NetworkManager> ServerAddPlayer = delegate {  };
         
-        [SerializeField]
-        private List<NetworkPlayer> _players = new();
+        
+        public List<NetworkPlayer> players = new();
 
         public static GameNetworkManager GetInstance { get; private set; }
 
@@ -25,21 +28,24 @@ namespace Components.Network
         {
             base.OnServerAddPlayer(conn);
             var player = conn.identity.GetComponent<NetworkPlayer>();
-            
-            _players.Add(player);
+            player.playerName = ($"Player {Random.Range(0, 1000)}");
+            // players.Add(player);
+            ServerAddPlayer?.Invoke(player, this);
+            Debug.Log("Server add player");
         }
 
         public override void OnServerDisconnect(NetworkConnectionToClient conn)
         {
             base.OnServerDisconnect(conn);
-            var player = conn.identity.GetComponent<NetworkPlayer>();
 
-            _players.Remove(player);
+            Debug.Log("Server REMOVE player");
+            //players.Remove(player);0
         }
 
         public void HostLobby()
         {
             StartHost();
+            ServerChangeScene("LobbyScene");
         }
 
         public void JoinLobby(string address)
@@ -69,10 +75,22 @@ namespace Components.Network
         {
             base.OnServerSceneChanged(sceneName);
 
-            if (SceneManager.GetActiveScene().name.StartsWith("Multiplayer"))
-            {
-                OnLobbySceneLoaded?.Invoke(_players, this);
-            }
+            // if (SceneManager.GetActiveScene().name.StartsWith("LobbyScene"))
+            // {
+            //     OnLobbySceneLoaded?.Invoke(players[0], this);
+            // }
+        }
+        
+        public override void OnStopServer() {
+            base.OnStopServer();
+            players.Clear();
+            PlayerRemoved?.Invoke();
+        }
+        
+        public override void OnStopClient() {
+            base.OnStopClient();
+            players.Clear();
+            PlayerRemoved?.Invoke();
         }
     }
 }

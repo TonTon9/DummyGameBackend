@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Components.Network;
 using Cysharp.Threading.Tasks;
@@ -12,11 +13,14 @@ namespace Components.Lobby
         [SerializeField]
         private GameObject _lobbyCharacterPrefab;
 
+        [SerializeField]
+        private List<LobbyCharactersPositions> _positions;
+
         protected override async void Subscribe()
         {
             base.Subscribe();
             await UniTask.WaitUntil(() => GameNetworkManager.GetInstance != null);
-            GameNetworkManager.GetInstance.OnLobbySceneLoaded += SpawnPlayer;
+            GameNetworkManager.GetInstance.ServerAddPlayer += SpawnPlayer;
         }
 
         protected override void UnSubscribe()
@@ -24,19 +28,42 @@ namespace Components.Lobby
             base.UnSubscribe();
             if (GameNetworkManager.GetInstance != null)
             {
-                GameNetworkManager.GetInstance.OnLobbySceneLoaded -= SpawnPlayer;    
+                GameNetworkManager.GetInstance.ServerAddPlayer -= SpawnPlayer;    
             }
         }
 
-        private void SpawnPlayer(List<NetworkPlayer> players, NetworkManager networkManager)
+        private void SpawnPlayer(NetworkPlayer player, NetworkManager networkManager)
         {
-            foreach (var player in players)
-            {
-                var connection = player.connectionToClient;
-                var playerInstance = Instantiate(_lobbyCharacterPrefab, networkManager.GetStartPosition().position, Quaternion.identity);
-                NetworkServer.ReplacePlayerForConnection(connection, playerInstance);
-            }
+            var connection = player.connectionToClient;
+            //var spawnPosition = networkManager.GetStartPosition();
+            var spawnPos = GetFreePosition();
+            
+            var playerInstance = Instantiate(_lobbyCharacterPrefab, spawnPos.Position.position, spawnPos.Position.rotation);
+            spawnPos.IsFree = false;
+            NetworkServer.Spawn(playerInstance, connection);
+            playerInstance.GetComponent<LobbyCharacter>().SetCharacterName(player.playerName);
         }
+
+        [Server]
+        private LobbyCharactersPositions GetFreePosition()
+        {
+            LobbyCharactersPositions position = null;
+            foreach (var pos in _positions)
+            {
+                if (pos.IsFree)
+                {
+                    position = pos;
+                }
+            }
+            return position;
+        }
+    }
+
+    [Serializable]
+    public class LobbyCharactersPositions
+    {
+        public Transform Position;
+        public bool IsFree = true;
     }
 }
 

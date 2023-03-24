@@ -7,4 +7,5 @@ namespace Enums
         MoveSpeed,
         Damage,
     }
+
 }

@@ -8,6 +8,8 @@ namespace Components.CharacterComponents
 {
     public class CharacterImageComponent : BaseImageComponent<CharacterModel>, IInitializedComponent
     {
+        [SerializeField]
+        private string _imagePath;
         public bool IsInitialized { get; private set; } = false;
         protected override async void Initialize()
         {
@@ -21,7 +23,7 @@ namespace Components.CharacterComponents
 
         private void CharacterViewModelNameChanged(string newName)
         {
-            var sprite = Resources.Load<Sprite>($"CharacterImages/{newName}");
+            var sprite = Resources.Load<Sprite>($"{_imagePath}{newName}Icon");
             Redraw(sprite);
             IsInitialized = true;
         }

@@ -32,6 +32,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5232883058540583552}
   m_RootOrder: 0
@@ -1921,6 +1922,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5232883057973330661}
   m_Father: {fileID: 5232883059528597109}
@@ -1957,6 +1959,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5232883058950967779}
   m_Father: {fileID: 5232883059206490818}
@@ -1994,6 +1997,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5232883059323656549}
   m_RootOrder: 2
@@ -2055,6 +2059,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5232883058549355102}
   m_RootOrder: 0
@@ -3948,6 +3953,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5232883059304625676}
   m_RootOrder: 0
@@ -4379,6 +4385,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5232883058549355102}
   m_Father: {fileID: 5232883059323656549}
@@ -4482,12 +4489,12 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 5232883059206490819}
     Selectable: {fileID: 5232883059206490821}
+  Cooldown: 0
+  DisableWhenInCooldown: 0
   Id:
     Category: Direction
     Name: Right
     Custom: 1
-  Cooldown: 0
-  DisableWhenInCooldown: 0
 --- !u!114 &5232883059206490820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4539,6 +4546,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5232883059098448016}
   m_Father: {fileID: 5232883059323656549}
@@ -4742,6 +4750,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5232883059304625676}
   - {fileID: 5232883059528597109}
@@ -4925,6 +4934,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5232883058540583552}
   m_Father: {fileID: 5232883059323656549}
@@ -5028,12 +5038,12 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 5232883059528597106}
     Selectable: {fileID: 5232883059528597108}
+  Cooldown: 0
+  DisableWhenInCooldown: 0
   Id:
     Category: Direction
     Name: Left
     Custom: 1
-  Cooldown: 0
-  DisableWhenInCooldown: 0
 --- !u!114 &5232883059528597111
 MonoBehaviour:
   m_ObjectHideFlags: 0

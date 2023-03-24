@@ -350,6 +350,7 @@ GameObject:
   - component: {fileID: 7041957236315737733}
   - component: {fileID: 4735879058269813698}
   - component: {fileID: 6906767013056300301}
+  - component: {fileID: 3657158721428862983}
   m_Layer: 7
   m_Name: Camera
   m_TagString: Untagged
@@ -437,9 +438,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2fbd82b1326d14790cf1b2e2939b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 3908299353949412726}
   Xsens: 400
   Ysens: 400
+  _characterCamera: {fileID: 0}
+--- !u!114 &3657158721428862983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559189746542371459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32471b940240bb544b02fd0177e5f76d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &579390461645592630
 GameObject:
   m_ObjectHideFlags: 0
@@ -7687,7 +7700,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

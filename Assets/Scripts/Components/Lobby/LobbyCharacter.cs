@@ -8,6 +8,7 @@ using Mirror;
 using Models;
 using TMPro;
 using UnityEngine;
+using NetworkPlayer = Components.Network.NetworkPlayer;
 
 namespace Components.Lobby
 {
@@ -67,32 +68,29 @@ namespace Components.Lobby
         }
 
         [Command]
-        private void CmdSetCharacterModel(string type)
+        private void CmdSetCharacterModel(string characterName)
         {
-            ServerSetCharacterModel(type);
+            ServerSetCharacterModel(characterName);
         }
 
         [Server]
-        private void ServerSetCharacterModel(string type)
+        private void ServerSetCharacterModel(string characterName)
         {
-            RpcSetCharacterModel(type);
+            RpcSetCharacterModel(characterName);
         }
 
         [ClientRpc]
-        private void RpcSetCharacterModel(string type)
+        private void RpcSetCharacterModel(string characterName)
         {
-            SetModelClient(type);
+            SetModelClient(characterName);
         }
 
         [Client]
-        private void SetModelClient(string type)
+        private void SetModelClient(string characterName)
         {
-            var model = _lobbyCharacterModels.FirstOrDefault(l => l.Type.ToString().Equals(type));
+            var model = _lobbyCharacterModels.FirstOrDefault(l => l.Type.ToString().Equals(characterName));
 
-            currentCharacterName = type;
-
-            Debug.Log(model);
-            
+            currentCharacterName = characterName;
             if (model == null)
             {
                 return;
@@ -102,8 +100,13 @@ namespace Components.Lobby
                 _currentModel.SetActive(false);
             }
             _currentModel = model.Model;
-            Debug.Log(_currentModel);   
             _currentModel.SetActive(true);
+            
+            if (hasAuthority)
+            {
+                var player = NetworkClient.connection.identity.GetComponent<NetworkPlayer>();
+                player.characterName = currentCharacterName;                
+            }
         }
 
         public void SetCharacterName(string newName)

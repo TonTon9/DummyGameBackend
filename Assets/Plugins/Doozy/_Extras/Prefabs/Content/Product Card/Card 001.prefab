@@ -28,6 +28,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7647577799372343816}
   m_Father: {fileID: 1019046412420523581}
@@ -103,6 +104,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1019046412940712697}
   - {fileID: 1019046412077594005}
@@ -152,14 +154,12 @@ MonoBehaviour:
     ActionTimescale: 0
     ActionOnStartStopOtherActions: 1
     OnStartEvents:
-      Enabled: 0
       EventName: OnStart
       Runners: []
       Event:
         m_PersistentCalls:
           m_Calls: []
     OnFinishEvents:
-      Enabled: 0
       EventName: OnFinish
       Runners: []
       Event:
@@ -190,14 +190,12 @@ MonoBehaviour:
     ActionTimescale: 0
     ActionOnStartStopOtherActions: 1
     OnStartEvents:
-      Enabled: 0
       EventName: OnStart
       Runners: []
       Event:
         m_PersistentCalls:
           m_Calls: []
     OnFinishEvents:
-      Enabled: 0
       EventName: OnFinish
       Runners: []
       Event:
@@ -218,14 +216,12 @@ MonoBehaviour:
     ActionTimescale: 0
     ActionOnStartStopOtherActions: 1
     OnStartEvents:
-      Enabled: 0
       EventName: OnStart
       Runners: []
       Event:
         m_PersistentCalls:
           m_Calls: []
     OnFinishEvents:
-      Enabled: 0
       EventName: OnFinish
       Runners: []
       Event:
@@ -246,14 +242,12 @@ MonoBehaviour:
     ActionTimescale: 0
     ActionOnStartStopOtherActions: 1
     OnStartEvents:
-      Enabled: 0
       EventName: OnStart
       Runners: []
       Event:
         m_PersistentCalls:
           m_Calls: []
     OnFinishEvents:
-      Enabled: 0
       EventName: OnFinish
       Runners: []
       Event:
@@ -274,14 +268,12 @@ MonoBehaviour:
     ActionTimescale: 0
     ActionOnStartStopOtherActions: 1
     OnStartEvents:
-      Enabled: 0
       EventName: OnStart
       Runners: []
       Event:
         m_PersistentCalls:
           m_Calls: []
     OnFinishEvents:
-      Enabled: 0
       EventName: OnFinish
       Runners: []
       Event:
@@ -302,14 +294,12 @@ MonoBehaviour:
     ActionTimescale: 0
     ActionOnStartStopOtherActions: 1
     OnStartEvents:
-      Enabled: 0
       EventName: OnStart
       Runners: []
       Event:
         m_PersistentCalls:
           m_Calls: []
     OnFinishEvents:
-      Enabled: 0
       EventName: OnFinish
       Runners: []
       Event:
@@ -330,14 +320,12 @@ MonoBehaviour:
     ActionTimescale: 0
     ActionOnStartStopOtherActions: 1
     OnStartEvents:
-      Enabled: 0
       EventName: OnStart
       Runners: []
       Event:
         m_PersistentCalls:
           m_Calls: []
     OnFinishEvents:
-      Enabled: 0
       EventName: OnFinish
       Runners: []
       Event:
@@ -358,14 +346,12 @@ MonoBehaviour:
     ActionTimescale: 0
     ActionOnStartStopOtherActions: 1
     OnStartEvents:
-      Enabled: 0
       EventName: OnStart
       Runners: []
       Event:
         m_PersistentCalls:
           m_Calls: []
     OnFinishEvents:
-      Enabled: 0
       EventName: OnFinish
       Runners: []
       Event:
@@ -386,14 +372,12 @@ MonoBehaviour:
     ActionTimescale: 0
     ActionOnStartStopOtherActions: 1
     OnStartEvents:
-      Enabled: 0
       EventName: OnStart
       Runners: []
       Event:
         m_PersistentCalls:
           m_Calls: []
     OnFinishEvents:
-      Enabled: 0
       EventName: OnFinish
       Runners: []
       Event:
@@ -415,14 +399,12 @@ MonoBehaviour:
     ActionTimescale: 0
     ActionOnStartStopOtherActions: 1
     OnStartEvents:
-      Enabled: 0
       EventName: OnStart
       Runners: []
       Event:
         m_PersistentCalls:
           m_Calls: []
     OnFinishEvents:
-      Enabled: 0
       EventName: OnFinish
       Runners: []
       Event:
@@ -443,14 +425,12 @@ MonoBehaviour:
     ActionTimescale: 0
     ActionOnStartStopOtherActions: 1
     OnStartEvents:
-      Enabled: 0
       EventName: OnStart
       Runners: []
       Event:
         m_PersistentCalls:
           m_Calls: []
     OnFinishEvents:
-      Enabled: 0
       EventName: OnFinish
       Runners: []
       Event:
@@ -471,14 +451,12 @@ MonoBehaviour:
     ActionTimescale: 0
     ActionOnStartStopOtherActions: 1
     OnStartEvents:
-      Enabled: 0
       EventName: OnStart
       Runners: []
       Event:
         m_PersistentCalls:
           m_Calls: []
     OnFinishEvents:
-      Enabled: 0
       EventName: OnFinish
       Runners: []
       Event:
@@ -500,14 +478,12 @@ MonoBehaviour:
     ActionTimescale: 0
     ActionOnStartStopOtherActions: 1
     OnStartEvents:
-      Enabled: 0
       EventName: OnStart
       Runners: []
       Event:
         m_PersistentCalls:
           m_Calls: []
     OnFinishEvents:
-      Enabled: 0
       EventName: OnFinish
       Runners: []
       Event:
@@ -529,14 +505,12 @@ MonoBehaviour:
     ActionTimescale: 0
     ActionOnStartStopOtherActions: 1
     OnStartEvents:
-      Enabled: 0
       EventName: OnStart
       Runners: []
       Event:
         m_PersistentCalls:
           m_Calls: []
     OnFinishEvents:
-      Enabled: 0
       EventName: OnFinish
       Runners: []
       Event:
@@ -576,6 +550,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1019046413299102739}
   - {fileID: 1019046413507607529}
@@ -709,6 +684,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1019046413299102739}
   m_RootOrder: 0
@@ -1096,6 +1072,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1019046412972194995}
   m_Father: {fileID: 1019046412940712697}
@@ -1192,6 +1169,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1019046413507607529}
   m_RootOrder: 1
@@ -1328,6 +1306,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1019046413951488990}
   - {fileID: 1019046413456167691}
@@ -1451,6 +1430,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1019046413507607529}
   m_RootOrder: 0
@@ -1590,6 +1570,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7647577799372343816}
   m_RootOrder: 0
@@ -1758,6 +1739,8 @@ MonoBehaviour:
       ToLightnessOffset: 0
       FromAlphaOffset: 0
       ToAlphaOffset: 0
+    UseCustomStartValue: 0
+    CustomStartValue: {r: 0, g: 0, b: 0, a: 0}
   HighlightedAnimation:
     OnPlayCallback:
       m_PersistentCalls:
@@ -1838,6 +1821,8 @@ MonoBehaviour:
       ToLightnessOffset: 0.1
       FromAlphaOffset: 0
       ToAlphaOffset: 0
+    UseCustomStartValue: 0
+    CustomStartValue: {r: 0, g: 0, b: 0, a: 0}
   PressedAnimation:
     OnPlayCallback:
       m_PersistentCalls:
@@ -1918,6 +1903,8 @@ MonoBehaviour:
       ToLightnessOffset: -0.1
       FromAlphaOffset: 0
       ToAlphaOffset: 0
+    UseCustomStartValue: 0
+    CustomStartValue: {r: 0, g: 0, b: 0, a: 0}
   SelectedAnimation:
     OnPlayCallback:
       m_PersistentCalls:
@@ -1998,6 +1985,8 @@ MonoBehaviour:
       ToLightnessOffset: 0.1
       FromAlphaOffset: 0
       ToAlphaOffset: 0
+    UseCustomStartValue: 0
+    CustomStartValue: {r: 0, g: 0, b: 0, a: 0}
   DisabledAnimation:
     OnPlayCallback:
       m_PersistentCalls:
@@ -2078,6 +2067,8 @@ MonoBehaviour:
       ToLightnessOffset: 0
       FromAlphaOffset: 0
       ToAlphaOffset: -0.5
+    UseCustomStartValue: 0
+    CustomStartValue: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &6405962027354391467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2174,6 +2165,8 @@ MonoBehaviour:
       ToLightnessOffset: 0
       FromAlphaOffset: 0
       ToAlphaOffset: 0
+    UseCustomStartValue: 0
+    CustomStartValue: {r: 0, g: 0, b: 0, a: 0}
   HighlightedAnimation:
     OnPlayCallback:
       m_PersistentCalls:
@@ -2254,6 +2247,8 @@ MonoBehaviour:
       ToLightnessOffset: 0.1
       FromAlphaOffset: 0
       ToAlphaOffset: 0
+    UseCustomStartValue: 0
+    CustomStartValue: {r: 0, g: 0, b: 0, a: 0}
   PressedAnimation:
     OnPlayCallback:
       m_PersistentCalls:
@@ -2334,6 +2329,8 @@ MonoBehaviour:
       ToLightnessOffset: -0.1
       FromAlphaOffset: 0
       ToAlphaOffset: 0
+    UseCustomStartValue: 0
+    CustomStartValue: {r: 0, g: 0, b: 0, a: 0}
   SelectedAnimation:
     OnPlayCallback:
       m_PersistentCalls:
@@ -2414,6 +2411,8 @@ MonoBehaviour:
       ToLightnessOffset: 0.2
       FromAlphaOffset: 0
       ToAlphaOffset: 0
+    UseCustomStartValue: 0
+    CustomStartValue: {r: 0, g: 0, b: 0, a: 0}
   DisabledAnimation:
     OnPlayCallback:
       m_PersistentCalls:
@@ -2494,6 +2493,8 @@ MonoBehaviour:
       ToLightnessOffset: 0
       FromAlphaOffset: 0
       ToAlphaOffset: -0.5
+    UseCustomStartValue: 0
+    CustomStartValue: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &5138446956379830775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3888,6 +3889,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6975201054296683492}
   m_Father: {fileID: 1019046412077594005}
@@ -3961,9 +3963,7 @@ MonoBehaviour:
   CurrentStateName: Normal
   NormalState:
     StateType: 0
-    StateName: Normal
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -3971,9 +3971,7 @@ MonoBehaviour:
           m_Calls: []
   HighlightedState:
     StateType: 1
-    StateName: Highlighted
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -3981,9 +3979,7 @@ MonoBehaviour:
           m_Calls: []
   PressedState:
     StateType: 2
-    StateName: Pressed
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -3991,9 +3987,7 @@ MonoBehaviour:
           m_Calls: []
   SelectedState:
     StateType: 3
-    StateName: Selected
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -4001,9 +3995,7 @@ MonoBehaviour:
           m_Calls: []
   DisabledState:
     StateType: 4
-    StateName: Disabled
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -4013,33 +4005,31 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 3002122777197718882}
     Selectable: {fileID: 370960546833714417}
+  Cooldown: 0
+  DisableWhenInCooldown: 0
   Id:
     Category: None
     Name: None
     Custom: 1
   OnToggleOnCallback:
-    Enabled: 0
     EventName: OnToggleOnCallback
     Runners: []
     Event:
       m_PersistentCalls:
         m_Calls: []
   OnInstantToggleOnCallback:
-    Enabled: 0
     EventName: OnInstantToggleOnCallback
     Runners: []
     Event:
       m_PersistentCalls:
         m_Calls: []
   OnToggleOffCallback:
-    Enabled: 0
     EventName: OnToggleOffCallback
     Runners: []
     Event:
       m_PersistentCalls:
         m_Calls: []
   OnInstantToggleOffCallback:
-    Enabled: 0
     EventName: OnInstantToggleOffCallback
     Runners: []
     Event:

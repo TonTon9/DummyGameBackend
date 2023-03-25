@@ -1,29 +1,45 @@
 using Character.Behaviours.Movement;
 using Components;
+using Components.Lobby;
+using Cysharp.Threading.Tasks;
 using Mirror;
 using UnityEngine;
+using Views.Game;
 
 namespace Character.Animations
 {
     [RequireComponent(typeof(NetworkAnimator), typeof(CharacterControllerMovement))]
-    public class CharacterAnimations : BaseMonoBehaviour
+    public class CharacterAnimations : BaseNetworkMonoBehaviour
     {
         private Animator _animator;
-        private NetworkAnimator _networkAnimator;
         private CharacterControllerMovement _characterController;
 
-        protected override void Initialize()
+        public override void OnStartAuthority()
         {
-            _animator = GetComponentInChildren<Animator>();
-            _networkAnimator = GetComponent<NetworkAnimator>();
-            _characterController = GetComponent<CharacterControllerMovement>();
-            
-            _networkAnimator.animator = _animator;
+            base.OnStartAuthority();
+            _isAuthorityInit = true;
         }
 
-        protected override void Subscribe()
+        protected override async void Initialize()
         {
-            base.Subscribe();
+            await UniTask.WaitUntil(() => _isAuthorityInit);
+            
+            if (!hasAuthority)
+            {
+                return;
+            }
+            _animator = GetComponentInChildren<Animator>();
+            _characterController = GetComponent<CharacterControllerMovement>();
+            _isInitialize = true;
+        }
+
+        protected override async void Subscribe()
+        {
+            await UniTask.WaitUntil(() => _isAuthorityInit && _isInitialize);
+            if (!hasAuthority)
+            {
+                return;
+            }
             _characterController.OnSit += Sit;
             _characterController.OnStay += Stay;
             _characterController.OnJump += Jump;
@@ -32,6 +48,10 @@ namespace Character.Animations
 
         protected override void UnSubscribe()
         {
+            if (!hasAuthority)
+            {
+                return;
+            }
             base.UnSubscribe();
             if (_characterController != null)
             {

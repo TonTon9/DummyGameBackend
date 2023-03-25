@@ -1,7 +1,8 @@
 using System;
+using Components;
 using UnityEngine;
 
-public class CharacterInputsController : MonoBehaviour
+public class CharacterInputsController : BaseNetworkMonoBehaviour
 {
     public event Action<float, float> OnWASDCalled;
     public event Action<float, float> OnMouseMoveCalled;
@@ -13,6 +14,10 @@ public class CharacterInputsController : MonoBehaviour
 
     private void Update()
     {
+        if (!hasAuthority)
+        {
+            return;
+        }
         OnWASDCalled?.Invoke(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         OnMouseMoveCalled?.Invoke(Input.GetAxis("Mouse Y") * Time.deltaTime,Input.GetAxis("Mouse X") * Time.deltaTime);
 

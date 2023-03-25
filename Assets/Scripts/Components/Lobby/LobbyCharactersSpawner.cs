@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Components.Network;
 using Cysharp.Threading.Tasks;
@@ -14,7 +13,7 @@ namespace Components.Lobby
         private GameObject _lobbyCharacterPrefab;
 
         [SerializeField]
-        private List<LobbyCharactersPositions> _positions;
+        private List<SpawnerCharacterPosition> _positions;
 
         protected override async void Subscribe()
         {
@@ -41,13 +40,13 @@ namespace Components.Lobby
             var playerInstance = Instantiate(_lobbyCharacterPrefab, spawnPos.Position.position, spawnPos.Position.rotation);
             spawnPos.IsFree = false;
             NetworkServer.Spawn(playerInstance, connection);
-            playerInstance.GetComponent<LobbyCharacter>().SetCharacterName(player.playerName);
+            playerInstance.GetComponent<LobbyCharacter>().SetCharacterNameAndNetworkPlayer(player.playerName, player);
         }
 
         [Server]
-        private LobbyCharactersPositions GetFreePosition()
+        private SpawnerCharacterPosition GetFreePosition()
         {
-            LobbyCharactersPositions position = null;
+            SpawnerCharacterPosition position = null;
             foreach (var pos in _positions)
             {
                 if (pos.IsFree)
@@ -59,11 +58,5 @@ namespace Components.Lobby
         }
     }
 
-    [Serializable]
-    public class LobbyCharactersPositions
-    {
-        public Transform Position;
-        public bool IsFree = true;
-    }
 }
 

@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LobbyScene.unity
     guid: a4960048578bbfe4d9c98cd61b901845
+  - enabled: 1
+    path: Assets/Scenes/FirstLevelScene.unity
+    guid: d539fa8cfe5301444afac5bc705749aa
   - enabled: 0
     path: Assets/Scenes/SignUpIn.unity
     guid: 4ab58a2629d977c4e99458c5f6c555fa

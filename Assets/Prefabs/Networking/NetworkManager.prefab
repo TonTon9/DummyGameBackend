@@ -61,6 +61,11 @@ MonoBehaviour:
   playerSpawnMethod: 1
   spawnPrefabs:
   - {fileID: 2792885804656817045, guid: 34942b16387ab734a9080b05a8be03c0, type: 3}
+  - {fileID: 1809159939607360822, guid: 0ac9db7110ce94b47844594d39c59c58, type: 3}
+  - {fileID: 1809159939607360822, guid: 6446480f869d7da4dab4e4e052a9da53, type: 3}
+  - {fileID: 1809159939607360822, guid: 9dea58e6f3af2db4b82ed9a02daf622a, type: 3}
+  - {fileID: 1809159939607360822, guid: 487baf90e9beb2c4e835d0170578e857, type: 3}
+  - {fileID: 1809159939607360822, guid: 2240b9acc43c1b14ab65851178376018, type: 3}
   timeInterpolationGui: 0
   players: []
 --- !u!114 &6847917069962582074

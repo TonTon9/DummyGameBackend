@@ -1,6 +1,4 @@
-using Enums;
 using Mirror;
-using UnityEngine;
 
 namespace Components.Network
 {
@@ -23,5 +21,35 @@ namespace Components.Network
             base.OnStopClient();
             GameNetworkManager.GetInstance.players.Remove(this);
         }
+
+        public void SetCharacterName(string newName)
+        {
+            CmdTest(newName);
+            //RpcTest(newName);
+        }
+
+        [Command]
+        private void CmdTest(string newName)
+        {
+            ServerSetCharacterName(newName);
+        }
+        
+        [Server]
+        private void ServerSetCharacterName(string newName)
+        {
+            characterName = newName;
+        }
+        
+        // [ClientRpc]
+        // private void RpcTest(string newName)
+        // {
+        //     ClientSetCharacterName(newName);
+        // }
+        //
+        // [Client]
+        // private void ClientSetCharacterName(string newName)
+        // {
+        //     characterName = newName;
+        // }
     }
 }

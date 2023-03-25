@@ -26,6 +26,9 @@ namespace Components.Lobby
         [SerializeField]
         private LobbyCharacterModel[] _lobbyCharacterModels;
 
+        [SyncVar]
+        public NetworkPlayer ownPlayer;
+
         private GameObject _currentModel;
 
         protected override async void Initialize()
@@ -33,15 +36,15 @@ namespace Components.Lobby
             base.Initialize();
             await UniTask.WaitUntil(() => userName != "");
 
-            SetUIName();
             
-            SetModelClient(currentCharacterName);   
+            SetUIName();
+            SetModelClient(currentCharacterName);
         }
 
         protected override void Subscribe()
         {
             base.Subscribe();
-            if (hasAuthority)
+            if (isOwned)
             {
                 LobbyCharacterSelectView.GetInstance.OnCharacterSelected += LobbyCharacterSelectView_OnCharacterSelected;
             }
@@ -50,9 +53,9 @@ namespace Components.Lobby
         protected override void UnSubscribe()
         {
             base.UnSubscribe();
-            if (hasAuthority)
+            if (isOwned)
             {
-                LobbyCharacterSelectView.GetInstance.OnCharacterSelected += LobbyCharacterSelectView_OnCharacterSelected;
+                LobbyCharacterSelectView.GetInstance.OnCharacterSelected -= LobbyCharacterSelectView_OnCharacterSelected;
             }
         }
         
@@ -101,17 +104,25 @@ namespace Components.Lobby
             }
             _currentModel = model.Model;
             _currentModel.SetActive(true);
-            
+
             if (hasAuthority)
             {
-                var player = NetworkClient.connection.identity.GetComponent<NetworkPlayer>();
-                player.characterName = currentCharacterName;                
+                if (ownPlayer != null)
+                {
+                    ownPlayer.SetCharacterName(currentCharacterName);
+                }
             }
+            // if (isOwned)
+            // {
+            //     var player = NetworkClient.connection.identity.GetComponent<NetworkPlayer>();
+            //     player.characterName = currentCharacterName;      
+            // }
         }
 
-        public void SetCharacterName(string newName)
+        public void SetCharacterNameAndNetworkPlayer(string newName, NetworkPlayer player)
         {
             userName = newName;
+            ownPlayer = player;
         }
 
         private void SetUIName()

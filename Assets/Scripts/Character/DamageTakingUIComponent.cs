@@ -1,18 +1,20 @@
 using System;
 using System.Collections.Generic;
-using Components.BaseComponent;
+using Components;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using Models;
-using UniRx;
+using Models.Game;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace Character.Game.Hud
 {
-    public class DamageTakingUIComponent : BaseCharacterComponentBaseOnView<CharacterModel>
+    public class DamageTakingUIComponent : BaseMonoBehaviour
     {
+        [SerializeField]
+        private GameCharacterModel _model;
+        
         [SerializeField]
         private Image _bloodImage;
 
@@ -41,13 +43,21 @@ namespace Character.Game.Hud
             CreatePoolFromScars();
         }
 
-        protected override async void Subscribe()
+        protected override void Subscribe()
         {
             base.Subscribe();
-            await UniTask.WaitUntil(() => _view.IsInitialize &&
-                                          _view.Model.Value != null);
-            
-            _view.Model.Value.Health.CurrentValue.Subscribe(TakeDamageAnimation);
+            if (_model != null)
+            {
+                _model.OnHealthChanged += TakeDamageAnimation;
+            }
+        }
+
+        protected override void UnSubscribe()
+        {
+            if (_model != null)
+            {
+                _model.OnHealthChanged -= TakeDamageAnimation;
+            }
         }
 
         private void CreatePoolFromScars()
@@ -61,12 +71,15 @@ namespace Character.Game.Hud
             }
         }
 
-        private void TakeDamageAnimation(float health)
+        private void TakeDamageAnimation(float health, HealthChangeType healthChangeType)
         {
-            _takeDamageSequence.Append(_bloodImage.DOFade(1, 0.25f));
-            _takeDamageSequence.Insert(0.5f,_bloodImage.DOFade(0, 3f));
-            var healthRatio = _view.Model.Value.Health.MaxValue.Value / health;
-            ShowScarsBasedOnCharacterHealthRatio(healthRatio);
+            if (healthChangeType == HealthChangeType.Damage)
+            {
+                _takeDamageSequence.Append(_bloodImage.DOFade(1, 0.25f));
+                _takeDamageSequence.Insert(0.5f,_bloodImage.DOFade(0, 3f));
+                var healthRatio = _model.MaxHealth / health;
+                ShowScarsBasedOnCharacterHealthRatio(healthRatio);
+            }
         }
 
         private void ShowScarsBasedOnCharacterHealthRatio(float healthRatio)
@@ -100,6 +113,7 @@ namespace Character.Game.Hud
                 _scarSequence.Append(scarImage.DOFade(1, 0.25f));
                 _scarSequence.Insert(0.5f,scarImage.DOFade(0, 3f));
                 await UniTask.Delay(TimeSpan.FromSeconds(4f));
+                _scarSequence.Kill();
                 AddScarImageToPool(scarImage);
             }
         }

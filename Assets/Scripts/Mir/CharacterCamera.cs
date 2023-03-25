@@ -1,9 +1,11 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
+using Views.Game;
 
 namespace Components.CharacterComponents.Camera
 {
     [RequireComponent(typeof(CharacterInputsController))]
-    public class CharacterCamera : MonoBehaviour
+    public class CharacterCamera : BaseNetworkMonoBehaviour
     {
         private CharacterInputsController _inputsController;
 
@@ -15,16 +17,43 @@ namespace Components.CharacterComponents.Camera
 
         [SerializeField]
         private Transform _characterCamera;
-    
+
         private float _xRotationAngle;
         private CameraPosition _cameraPositionObject;
-
-        private void Awake()
+        
+        public override void OnStartAuthority()
         {
+            base.OnStartAuthority();
+            _isAuthorityInit = true;
+        }
+
+        protected override async void Initialize()
+        {
+            await UniTask.WaitUntil(() => _isAuthorityInit);
+            
+            if (!hasAuthority)
+            {
+                return;
+            }
+
             _inputsController = GetComponent<CharacterInputsController>();
-            _inputsController.OnMouseMoveCalled += RotateCharacter;
             _cameraPositionObject = GetComponentInChildren<CameraPosition>();
             _characterCamera.position = _cameraPositionObject.transform.position;
+            _characterCamera.gameObject.SetActive(true);
+            _isInitialize = true;
+        }
+
+        protected override async void Subscribe()
+        {
+            await UniTask.WaitUntil(() => _isAuthorityInit && _isInitialize);
+            
+            if (!hasAuthority)
+            {
+                return;
+            }
+            
+            base.Subscribe();
+            _inputsController.OnMouseMoveCalled += RotateCharacter;
         }
 
         private void RotateCharacter(float xAngle, float yAngle)
@@ -42,9 +71,7 @@ namespace Components.CharacterComponents.Camera
         private void SetCameraPosition()
         {
             _characterCamera.position = _cameraPositionObject.transform.position;
-            _characterCamera.localPosition = new Vector3(_characterCamera.localPosition.x, _characterCamera.localPosition.y, _characterCamera.localPosition.z+0.2f);
-
-            //_characterCamera.position = new Vector3(_characterCamera.position.x, _cameraPositionObject.transform.position.y, _characterCamera.position.z);
+            _characterCamera.localPosition = new Vector3(_characterCamera.localPosition.x, _characterCamera.localPosition.y, _characterCamera.localPosition.z+0.25f);
         }
     }
 }

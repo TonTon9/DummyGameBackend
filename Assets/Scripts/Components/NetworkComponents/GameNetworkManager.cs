@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Components.Lobby;
 using Mirror;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,7 +11,7 @@ namespace Components.Network
     public class GameNetworkManager : NetworkManager
     {
         public event Action PlayerRemoved = delegate { };
-        public event Action<NetworkPlayer, NetworkManager> OnLobbySceneLoaded = delegate {  };
+        public event Action OnLobbySceneLoaded = delegate { };
         public event Action<NetworkPlayer, NetworkManager> ServerAddPlayer = delegate {  };
         
         
@@ -29,7 +30,7 @@ namespace Components.Network
             base.OnServerAddPlayer(conn);
             var player = conn.identity.GetComponent<NetworkPlayer>();
             player.playerName = ($"Player {Random.Range(0, 1000)}");
-            // players.Add(player);
+
             ServerAddPlayer?.Invoke(player, this);
             Debug.Log("Server add player");
         }
@@ -39,7 +40,6 @@ namespace Components.Network
             base.OnServerDisconnect(conn);
 
             Debug.Log("Server REMOVE player");
-            //players.Remove(player);0
         }
 
         public void HostLobby()
@@ -68,17 +68,19 @@ namespace Components.Network
 
         public void StartGame()
         {
-            ServerChangeScene("Multiplayer");
+            ServerChangeScene("FirstLevelScene");
         }
 
         public override void OnServerSceneChanged(string sceneName)
         {
             base.OnServerSceneChanged(sceneName);
-
-            // if (SceneManager.GetActiveScene().name.StartsWith("LobbyScene"))
-            // {
-            //     OnLobbySceneLoaded?.Invoke(players[0], this);
-            // }
+        
+            if (SceneManager.GetActiveScene().name.StartsWith("FirstLevelScene"))
+            {
+                Debug.Log("OnLobbySceneLoaded");
+                OnLobbySceneLoaded?.Invoke();
+                GameCharactersSpawner.GetInstance.SpawnCharacters();
+            }
         }
         
         public override void OnStopServer() {

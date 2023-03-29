@@ -2,6 +2,11 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
+logRunSetup.txt
+Assets/Wwise/API/Runtime/Plugins/iOS/Debug/
+Assets/Wwise/API/Runtime/Plugins/iOS/Profile/
+Assets/Wwise/API/Runtime/Plugins/iOS/Release/
+
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
